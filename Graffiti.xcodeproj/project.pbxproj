@@ -12,6 +12,8 @@
 		FA2AA5421E42C64F00DF0D70 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA2AA5401E42C64F00DF0D70 /* Main.storyboard */; };
 		FA2AA5441E42C64F00DF0D70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA2AA5431E42C64F00DF0D70 /* Assets.xcassets */; };
 		FA2AA5471E42C64F00DF0D70 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA2AA5451E42C64F00DF0D70 /* LaunchScreen.storyboard */; };
+		FA2AA5501E42DC4400DF0D70 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA2AA54F1E42DC4400DF0D70 /* MapKit.framework */; };
+		FA2AA5521E42E51300DF0D70 /* GraffitiDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2AA5511E42E51300DF0D70 /* GraffitiDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		FA2AA5431E42C64F00DF0D70 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA2AA5461E42C64F00DF0D70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA2AA5481E42C64F00DF0D70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA2AA54F1E42DC4400DF0D70 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		FA2AA5511E42E51300DF0D70 /* GraffitiDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraffitiDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA2AA5501E42DC4400DF0D70 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +45,7 @@
 			children = (
 				FA2AA53B1E42C64F00DF0D70 /* Graffiti */,
 				FA2AA53A1E42C64F00DF0D70 /* Products */,
+				FA2AA54E1E42DC4400DF0D70 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,11 +63,20 @@
 				FA2AA53C1E42C64F00DF0D70 /* AppDelegate.swift */,
 				FA2AA53E1E42C64F00DF0D70 /* ViewController.swift */,
 				FA2AA5401E42C64F00DF0D70 /* Main.storyboard */,
+				FA2AA5511E42E51300DF0D70 /* GraffitiDetailViewController.swift */,
 				FA2AA5431E42C64F00DF0D70 /* Assets.xcassets */,
 				FA2AA5451E42C64F00DF0D70 /* LaunchScreen.storyboard */,
 				FA2AA5481E42C64F00DF0D70 /* Info.plist */,
 			);
 			path = Graffiti;
+			sourceTree = "<group>";
+		};
+		FA2AA54E1E42DC4400DF0D70 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FA2AA54F1E42DC4400DF0D70 /* MapKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,6 +151,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA2AA5521E42E51300DF0D70 /* GraffitiDetailViewController.swift in Sources */,
 				FA2AA53F1E42C64F00DF0D70 /* ViewController.swift in Sources */,
 				FA2AA53D1E42C64F00DF0D70 /* AppDelegate.swift in Sources */,
 			);
