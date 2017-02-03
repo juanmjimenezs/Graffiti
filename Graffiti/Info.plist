@@ -38,5 +38,7 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Graffiti utiliza tu localización para guardar graffitis geniales</string>
 </dict>
 </plist>

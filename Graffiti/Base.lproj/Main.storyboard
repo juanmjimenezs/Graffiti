@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Current Location View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Graffiti" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="CurrentLocationViewController" customModule="Graffiti" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -32,6 +32,9 @@
                                     <constraint firstAttribute="width" constant="75" id="nNx-L2-eWW"/>
                                 </constraints>
                                 <state key="normal" image="btn_localizar_on"/>
+                                <connections>
+                                    <action selector="getLocation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ovk-Tj-Rml"/>
+                                </connections>
                             </button>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="N6Z-WE-zib">
                                 <rect key="frame" x="177" y="569" width="20" height="20"/>
@@ -57,6 +60,12 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="activityIndicator" destination="N6Z-WE-zib" id="22X-3S-1be"/>
+                        <outlet property="getButton" destination="iU5-LV-6FD" id="JMu-7F-5Ka"/>
+                        <outlet property="mapView" destination="Evc-vu-0FO" id="Dbp-qy-oWV"/>
+                        <outlet property="tagButton" destination="hHc-qO-Yv7" id="KMa-8m-MbO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -169,7 +178,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qkY-Eq-4mC" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="aDC-dV-naO">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="aDC-dV-naO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.21960784310000001" green="0.58039215690000001" blue="0.84705882349999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -188,7 +197,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dHh-i7-TOk" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="e6Z-LZ-QMz">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="e6Z-LZ-QMz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.21960784310000001" green="0.58039215690000001" blue="0.84705882349999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
