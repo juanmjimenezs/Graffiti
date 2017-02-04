@@ -106,6 +106,21 @@ class CurrentLocationViewController: UIViewController {
         
         return line1 + "\n" + line2 + "\n" + line3
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "TagGraffiti" {
+            let navigationController = segue.destination as! UINavigationController
+            let detailVC = navigationController.topViewController as! GraffitiDetailViewController
+            detailVC.taggedGraffiti = self.graffiti
+            detailVC.delegate = self
+        }
+    }
+}
+
+extension CurrentLocationViewController: GraffitiDetailViewControllerDelegate {
+    func graffitiDidFinishGetTagged(sender: GraffitiDetailViewController, tagged: Graffiti) {
+        
+    }
 }
 
 extension CurrentLocationViewController: CLLocationManagerDelegate {

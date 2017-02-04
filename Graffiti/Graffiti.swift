@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MapKit
 
 class Graffiti: NSObject {
     let address: String
@@ -19,5 +20,25 @@ class Graffiti: NSObject {
         self.longitude = longitude
         self.latitude = latitude
         self.imageUrl = imageUrl
+    }
+}
+
+extension Graffiti: MKAnnotation {
+    var coordinate: CLLocationCoordinate2D {
+        get {
+            return CLLocationCoordinate2D(latitude: self.latitude, longitude: self.longitude)
+        }
+    }
+    
+    var title: String? {
+        get {
+            return "Graffiti"
+        }
+    }
+    
+    var subtitle: String? {
+        get {
+            return self.address.replacingOccurrences(of: "\n", with: "")
+        }
     }
 }

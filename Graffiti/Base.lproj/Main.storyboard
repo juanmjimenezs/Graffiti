@@ -22,7 +22,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Evc-vu-0FO">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Evc-vu-0FO">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iU5-LV-6FD">
@@ -83,7 +83,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgPlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="yAv-Il-LIF">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgPlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="yAv-Il-LIF">
                                 <rect key="frame" x="0.0" y="64" width="375" height="375"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="375" id="FEt-1z-i5u"/>
@@ -164,10 +164,17 @@
                                 <action selector="cancelPressed:" destination="eOT-E8-wUt" id="TTl-h6-TSn"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="1xf-XE-bNq">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="save" id="1xf-XE-bNq">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="addressLabel" destination="lxm-Ak-rIN" id="wLC-e8-R6n"/>
+                        <outlet property="imgGraffiti" destination="yAv-Il-LIF" id="MSq-RT-muz"/>
+                        <outlet property="latitudeLabel" destination="z3p-xy-s56" id="8DG-nj-tdb"/>
+                        <outlet property="longitudeLabel" destination="9Ev-hq-RVu" id="RLs-vg-5Vc"/>
+                        <outlet property="saveButton" destination="1xf-XE-bNq" id="704-gO-lFs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bq2-RJ-1mb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
