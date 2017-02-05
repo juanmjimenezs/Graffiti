@@ -65,6 +65,7 @@
                         <outlet property="getButton" destination="iU5-LV-6FD" id="JMu-7F-5Ka"/>
                         <outlet property="mapView" destination="Evc-vu-0FO" id="Dbp-qy-oWV"/>
                         <outlet property="tagButton" destination="hHc-qO-Yv7" id="KMa-8m-MbO"/>
+                        <segue destination="d7Z-s3-VWR" kind="presentation" identifier="showPinImage" id="FaY-0z-FdA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -166,6 +167,9 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="save" id="1xf-XE-bNq">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="saveGraffiti:" destination="eOT-E8-wUt" id="ZR5-Ok-OXY"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -217,6 +221,65 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ieV-9a-JmN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2021.5999999999999" y="-546.47676161919048"/>
+        </scene>
+        <!--Graffiti Image View Controller-->
+        <scene sceneID="6Kh-qO-8Ni">
+            <objects>
+                <viewController id="nrF-87-bQm" customClass="GraffitiImageViewController" customModule="Graffiti" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="EFr-3r-Zw4"/>
+                        <viewControllerLayoutGuide type="bottom" id="YWS-D7-uKd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Thm-5W-80Z">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="M2P-UD-lbn">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="YWS-D7-uKd" firstAttribute="top" secondItem="M2P-UD-lbn" secondAttribute="bottom" id="CcR-Ov-Mfd"/>
+                            <constraint firstItem="M2P-UD-lbn" firstAttribute="top" secondItem="EFr-3r-Zw4" secondAttribute="bottom" id="RkC-77-atC"/>
+                            <constraint firstItem="M2P-UD-lbn" firstAttribute="leading" secondItem="Thm-5W-80Z" secondAttribute="leading" id="ePs-Yd-Pyw"/>
+                            <constraint firstAttribute="trailing" secondItem="M2P-UD-lbn" secondAttribute="trailing" id="zc1-s4-KXk"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="WCO-KI-Lbh">
+                        <barButtonItem key="leftBarButtonItem" title="Cerrar" id="PxY-Db-tYG">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="closeButtonTapped:" destination="nrF-87-bQm" id="8OR-aw-Nhl"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="graffitiImage" destination="M2P-UD-lbn" id="hRq-cO-VTn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lhp-Nq-WAT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2967.1999999999998" y="264.91754122938534"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="cDa-nb-yKC">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="d7Z-s3-VWR" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="huM-Lp-iVt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="nrF-87-bQm" kind="relationship" relationship="rootViewController" id="psb-3O-qBj"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="29V-aW-WNt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2028" y="264.91754122938534"/>
         </scene>
     </scenes>
     <resources>

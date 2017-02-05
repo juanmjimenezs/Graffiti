@@ -35,13 +35,22 @@ class CurrentLocationViewController: UIViewController {
         }
     }
     
+    var selectedCalloutImage: UIImage?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        GraffitiManager.sharedInstance.load()
         
         let image = UIImage(named: "img_navbar_title")
         self.navigationItem.titleView = UIImageView(image: image)
         
         self.updatingLocation = false
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        mapView.delegate = self
+        mapView.addAnnotations(GraffitiManager.sharedInstance.graffitis)
     }
     
     @IBAction func getLocation(_ sender: UIButton) {
@@ -114,12 +123,20 @@ class CurrentLocationViewController: UIViewController {
             detailVC.taggedGraffiti = self.graffiti
             detailVC.delegate = self
         }
+        
+        if segue.identifier == "showPinImage" {
+            let navigationController = segue.destination as! UINavigationController
+            let graffitiImageVC = navigationController.topViewController as! GraffitiImageViewController
+            graffitiImageVC.selectedCallout = self.selectedCalloutImage
+        }
     }
 }
 
 extension CurrentLocationViewController: GraffitiDetailViewControllerDelegate {
-    func graffitiDidFinishGetTagged(sender: GraffitiDetailViewController, tagged: Graffiti) {
-        
+    
+    func graffitiDidFinishGetTagged(sender: GraffitiDetailViewController, taggedGraffiti: Graffiti) {
+        GraffitiManager.sharedInstance.graffitis.append(taggedGraffiti)
+        GraffitiManager.sharedInstance.save()
     }
 }
 
@@ -149,5 +166,53 @@ extension CurrentLocationViewController: CLLocationManagerDelegate {
             self.updatingLocation = false
             self.tagButton.isEnabled = true
         }
+    }
+}
+
+extension CurrentLocationViewController: MKMapViewDelegate {
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation is MKUserLocation {
+            return nil
+        }
+        
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "graffitiPin")
+        if annotationView == nil {
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "graffitiPin")
+        } else {
+            annotationView?.annotation = annotation
+        }
+        
+        if let place = annotation as? Graffiti {
+            let imageName = place.imageUrl
+            if let imagesURL = GraffitiManager.sharedInstance.imagesURL() {
+                let imageData = try! Data(contentsOf: imagesURL.appendingPathComponent(imageName))
+                self.selectedCalloutImage = UIImage(data: imageData)
+                let image = self.resizeImage(image: self.selectedCalloutImage!, newWidth: 40.0)
+                let btnImageView = UIButton(frame: CGRect(x: 0, y: 0, width: 40.0, height: 40.0))
+                btnImageView.setImage(image, for: .normal)
+                annotationView?.leftCalloutAccessoryView = btnImageView
+                annotationView?.image = UIImage(named: "img_pin")
+                annotationView?.canShowCallout = true
+            }
+        }
+        return annotationView
+    }
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        if control == view.leftCalloutAccessoryView {
+            performSegue(withIdentifier: "showPinImage", sender: view)
+        }
+    }
+    
+    func resizeImage(image: UIImage, newWidth: CGFloat) ->UIImage {
+        let scale = newWidth / image.size.width
+        let newHeight = image.size.height * scale
+        UIGraphicsBeginImageContext(CGSize(width: newWidth, height: newHeight))
+        image.draw(in: CGRect(x: 0, y: 0, width: newWidth, height: newHeight))
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return newImage!
     }
 }

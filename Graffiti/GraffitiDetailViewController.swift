@@ -19,7 +19,7 @@ protocol GraffitiDetailViewControllerDelegate: class {
         - sender: el origen de los datos
         - tagged: el objeto graffiti
      */
-    func graffitiDidFinishGetTagged(sender: GraffitiDetailViewController, tagged: Graffiti)
+    func graffitiDidFinishGetTagged(sender: GraffitiDetailViewController, taggedGraffiti: Graffiti)
 }
 
 class GraffitiDetailViewController: UIViewController {
@@ -58,6 +58,26 @@ class GraffitiDetailViewController: UIViewController {
         self.addressLabel.text = self.taggedGraffiti?.address
     }
     
+    @IBAction func saveGraffiti(_ sender: UIBarButtonItem) {
+        if let image = imgGraffiti.image {
+            let randomName = UUID().uuidString.appending(".png")
+            if let url = GraffitiManager.sharedInstance.imagesURL()?.appendingPathComponent(randomName) {
+                let imageData = UIImagePNGRepresentation(image)
+                do {
+                    try imageData?.write(to: url)
+                } catch (let error) {
+                    print("Error salvando la imagen: \(error)")
+                }
+            }
+            self.taggedGraffiti = Graffiti(address: self.addressLabel.text!, latitude: Double(self.latitudeLabel.text!)!, longitude: Double(self.longitudeLabel.text!)!, imageUrl: randomName)
+            
+            if let taggedGraffiti = self.taggedGraffiti {
+                delegate?.graffitiDidFinishGetTagged(sender: self, taggedGraffiti: taggedGraffiti)
+            }
+        }
+        
+        dismiss(animated: true, completion: nil)
+    }
 }
 
 extension GraffitiDetailViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {

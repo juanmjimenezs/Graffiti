@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA0C6C7B1E46D99200487EC9 /* GraffitiImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0C6C7A1E46D99200487EC9 /* GraffitiImageViewController.swift */; };
 		FA2AA53D1E42C64F00DF0D70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2AA53C1E42C64F00DF0D70 /* AppDelegate.swift */; };
 		FA2AA53F1E42C64F00DF0D70 /* CurrentLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2AA53E1E42C64F00DF0D70 /* CurrentLocationViewController.swift */; };
 		FA2AA5421E42C64F00DF0D70 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA2AA5401E42C64F00DF0D70 /* Main.storyboard */; };
@@ -14,10 +15,12 @@
 		FA2AA5471E42C64F00DF0D70 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA2AA5451E42C64F00DF0D70 /* LaunchScreen.storyboard */; };
 		FA2AA5501E42DC4400DF0D70 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA2AA54F1E42DC4400DF0D70 /* MapKit.framework */; };
 		FA2AA5521E42E51300DF0D70 /* GraffitiDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2AA5511E42E51300DF0D70 /* GraffitiDetailViewController.swift */; };
+		FA6B7EA01E4676830034F595 /* GraffitiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6B7E9F1E4676830034F595 /* GraffitiManager.swift */; };
 		FAFEDB851E44093F00C6EA0B /* Graffiti.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFEDB841E44093F00C6EA0B /* Graffiti.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FA0C6C7A1E46D99200487EC9 /* GraffitiImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraffitiImageViewController.swift; sourceTree = "<group>"; };
 		FA2AA5391E42C64F00DF0D70 /* Graffiti.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Graffiti.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA2AA53C1E42C64F00DF0D70 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA2AA53E1E42C64F00DF0D70 /* CurrentLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentLocationViewController.swift; sourceTree = "<group>"; };
@@ -27,6 +30,7 @@
 		FA2AA5481E42C64F00DF0D70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA2AA54F1E42DC4400DF0D70 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		FA2AA5511E42E51300DF0D70 /* GraffitiDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraffitiDetailViewController.swift; sourceTree = "<group>"; };
+		FA6B7E9F1E4676830034F595 /* GraffitiManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraffitiManager.swift; sourceTree = "<group>"; };
 		FAFEDB841E44093F00C6EA0B /* Graffiti.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Graffiti.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -65,11 +69,13 @@
 				FA2AA53C1E42C64F00DF0D70 /* AppDelegate.swift */,
 				FA2AA53E1E42C64F00DF0D70 /* CurrentLocationViewController.swift */,
 				FA2AA5401E42C64F00DF0D70 /* Main.storyboard */,
+				FA0C6C7A1E46D99200487EC9 /* GraffitiImageViewController.swift */,
 				FA2AA5511E42E51300DF0D70 /* GraffitiDetailViewController.swift */,
 				FA2AA5431E42C64F00DF0D70 /* Assets.xcassets */,
 				FA2AA5451E42C64F00DF0D70 /* LaunchScreen.storyboard */,
 				FA2AA5481E42C64F00DF0D70 /* Info.plist */,
 				FAFEDB841E44093F00C6EA0B /* Graffiti.swift */,
+				FA6B7E9F1E4676830034F595 /* GraffitiManager.swift */,
 			);
 			path = Graffiti;
 			sourceTree = "<group>";
@@ -156,7 +162,9 @@
 			files = (
 				FA2AA5521E42E51300DF0D70 /* GraffitiDetailViewController.swift in Sources */,
 				FAFEDB851E44093F00C6EA0B /* Graffiti.swift in Sources */,
+				FA6B7EA01E4676830034F595 /* GraffitiManager.swift in Sources */,
 				FA2AA53F1E42C64F00DF0D70 /* CurrentLocationViewController.swift in Sources */,
+				FA0C6C7B1E46D99200487EC9 /* GraffitiImageViewController.swift in Sources */,
 				FA2AA53D1E42C64F00DF0D70 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
